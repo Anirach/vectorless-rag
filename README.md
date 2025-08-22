@@ -58,7 +58,7 @@ graph TD
 ### 📁 **Advanced File Handling**
 - **Up to 100 PDF documents** per session
 - **Chunked Upload System**: Automatically handles large file sets (>4.5MB)
-- **4.5MB per file limit** - processes substantial documents
+- **20MB per file limit** - processes substantial documents
 - **Real-time Processing**: No pre-indexing required
 
 ### 💡 **Intelligent Processing**
@@ -128,7 +128,7 @@ Visit http://localhost:3000
 
 ### 1. **Upload Your Documents**
 - Click "Add Your First Document" or "Add Files"
-- Select up to 100 PDF files (4.5MB each max)
+- Select up to 100 PDF files (20MB each max)
 - Add a description of your document collection
 - Large uploads are automatically chunked for reliability
 

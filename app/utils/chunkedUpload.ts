@@ -29,8 +29,8 @@ interface ChunkedUploadResult {
 }
 
 export class ChunkedUploader {
-  private static readonly MAX_PAYLOAD_SIZE_MB = 4.5;
-  private static readonly MAX_FILE_SIZE_MB = 4.5;
+  private static readonly MAX_PAYLOAD_SIZE_MB = 20;
+  private static readonly MAX_FILE_SIZE_MB = 20;
   private static readonly DEFAULT_CHUNK_SIZE_MB = 3.5;
 
   static async upload(options: ChunkedUploadOptions): Promise<ChunkedUploadResult> {

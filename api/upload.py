@@ -15,7 +15,7 @@ from pdf_processor import PDFProcessor
 
 # Vercel payload limit is 4.5MB for the entire request
 MAX_PAYLOAD_SIZE = 4.5 * 1024 * 1024  # 4.5MB in bytes
-MAX_FILE_SIZE = 4.5 * 1024 * 1024  # 4.5MB per individual file
+MAX_FILE_SIZE = 20 * 1024 * 1024  # 20MB per individual file
 MAX_TOTAL_FILES = 100  # Keep original limit
 CHUNK_SIZE = 3.5 * 1024 * 1024  # Process in 3.5MB chunks to stay under limit
 
@@ -127,7 +127,7 @@ class handler(BaseHTTPRequestHandler):
                 "limits": {
                     "max_payload_size_mb": 4.5,
                     "max_files_total": MAX_TOTAL_FILES,
-                    "max_file_size_mb": 4.5,
+                    "max_file_size_mb": 20,
                 },
             }
             self.wfile.write(json.dumps(error_response).encode())
@@ -206,7 +206,7 @@ class handler(BaseHTTPRequestHandler):
                     "error": f"File too large: {file_item.filename}",
                     "file_size_mb": round(file_size / 1024 / 1024, 1),
                     "max_size_mb": round(MAX_FILE_SIZE / 1024 / 1024, 1),
-                    "suggestion": "Please reduce file size to under 4.5MB",
+                    "suggestion": "Please reduce file size to under 20MB",
                 }
 
             # Create temporary file for processing
@@ -305,7 +305,7 @@ class handler(BaseHTTPRequestHandler):
             },
             "recommendations": [
                 "For uploads over 4.5MB, use chunked upload automatically",
-                "Individual PDFs can be up to 4.5MB each",
+                "Individual PDFs can be up to 20MB each",
                 "Up to 100 files total supported",
             ],
         }

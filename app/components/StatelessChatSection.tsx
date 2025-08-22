@@ -136,6 +136,15 @@ export default function StatelessChatSection({
     setMessages(prev => [...prev, assistantMessage]);
 
     try {
+      // Debug logging
+      console.log('=== Frontend Debug Info ===');
+      console.log('Question:', question);
+      console.log('Documents being sent:', documents);
+      console.log('Documents length:', documents?.length || 0);
+      console.log('Documents structure:', JSON.stringify(documents?.slice(0, 1), null, 2));
+      console.log('Description:', description);
+      console.log('===========================');
+
       const response = await fetch(`${config.apiBaseUrl}/chat/stream`, {
         method: 'POST',
         headers: {
